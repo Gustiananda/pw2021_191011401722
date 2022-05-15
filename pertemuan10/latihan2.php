@@ -1,6 +1,8 @@
 <?php 
 require 'functions.php';
 $mahasiswa = query("SELECT * FROM tbnilai");
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +25,7 @@ $mahasiswa = query("SELECT * FROM tbnilai");
             <th>Uas</th>
             <th>Tugas</th>
             <th>jmlhadir</th>
+            <th>Nilai Akhir</th>
             <th>Aksi</th>
         </tr>
         <?php $i = 1;
@@ -37,7 +40,12 @@ $mahasiswa = query("SELECT * FROM tbnilai");
             <td><?= $m['tugas']; ?></td>
             <td><?= $m['jmlhadir']; ?></td>
             <td>
-                <a href="">Edit</a> | <a href="">Hapus</a> 
+            <a href="nilai.php">Detail</a>
+            </td>
+            <td>
+                <a href="ubah.php?nim=<?= $m['nim'];?>">Edit</a> | <a href="hapus.php?nim=<?= $m['nim'];?>" 
+                onclick="return confirm('apakah anda yakin?');">Hapus</a> |
+                <a href="index.php">Kembali</a> </a> 
             </td>
         </tr>
         <?php endforeach; ?>
