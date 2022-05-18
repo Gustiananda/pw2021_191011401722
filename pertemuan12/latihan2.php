@@ -1,6 +1,6 @@
 <?php 
 require 'functions.php';
-$mahasiswa = query("SELECT * FROM tbl_mhs");
+$mahasiswa = query('SELECT * FROM tbnilai');
 
 
 ?>
@@ -17,40 +17,46 @@ $mahasiswa = query("SELECT * FROM tbl_mhs");
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Pemrograman Web 2</title>
 </head>
 <body>
-<center>
+    <center>
 <div class="container">
-    <h2>DAFTAR MAHASISWA</h2><br>
-</center>
-<div class="table-responsive">
+    <h3>DAFTAR NILAI MAHASISWA</h3>
+    <div class="table-responsive">
 <table class="table table-hover">
               <thead>
         <tr>
-            <th>No</th>
-            <th>ID Mhs</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Job Date</th>
-            <th>Age</th>
+            <th>#</th>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Matakuliah</th>
+            <th>Uts</th>
+            <th>Uas</th>
+            <th>Tugas</th>
+            <th>jmlhadir</th>
+            <th >Nilai Akhir</th>
+            <th >Grade</th>
             <th>Aksi</th>
-
         </tr>
-        </thead>
         <?php $i = 1;
         foreach($mahasiswa as $m) : ?>
         <tr>
             <td><?= $i++; ?></td>
-            <td><?= $m['mhsID']; ?></td>
-            <td><?= $m['firstname']; ?></td>
-            <td><?= $m['lastname']; ?></td>
-            <td><?= $m['job_date']; ?></td>
-            <td><?= $m['age']; ?></td>
+            <td><?= $m['nim']; ?></td>
+            <td><?= $m['nama_mhs']; ?></td>
+            <td><?= $m['matakuliah']; ?></td>
+            <td><?= $m['uts']; ?></td>
+            <td><?= $m['uas']; ?></td>
+            <td><?= $m['tugas']; ?></td>
+            <td><?= $m['jmlhadir']; ?></td>
+            <td><?= $m['nilai_akhir'];?></td>
+            <td><?= $m['grade'];?></td>
             <td>
-                <a href="ubah.php?mhsID=<?= $m['mhsID'];?>"<span class="glyphicon glyphicon-edit"></span></a> | 
-                <a href="hapus.php?mhsID=<?= $m['mhsID'];?>"onclick="return confirm('apakah anda yakin?');"> <span class="glyphicon glyphicon-floppy-remove"></span></a> |
-                <a href="index.php">Kembali</a> <span class="glyphicon glyphicon-back"></span>
+            <a href="ubah.php?nim=<?= $m['nim'];?>"><span class="glyphicon glyphicon-edit"></a> | 
+            <a href="hapus.php?nim=<?= $m['nim'];?>" 
+                onclick="return confirm('apakah anda yakin?');"><span class="glyphicon glyphicon-floppy-remove"></span></a> |
+                <a href="index.php"><span class="glyphicon glyphicon-retweet"></span></a> </a> 
             </td>
         </tr>
         <?php endforeach; ?>

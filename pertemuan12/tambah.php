@@ -24,15 +24,14 @@ if(isset($_POST['tambah'])){
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Tambah DataMahasiswa</title>
+    <title>Tambah Data Nilai </title>
 </head>
 <body>
 <section id="form">
 <div class="container">
 <div class="row text-center">
     <h3>Form Tambah Data </h3>
-    </div>
-    <form action="" method="POST">
+    <form action="nilai.php" method="POST">
     <div class="container overflow-hidden">
           <div class="row gx-2">
             <div class="col">
@@ -42,33 +41,42 @@ if(isset($_POST['tambah'])){
                 <center>
                 <div class="form-group">
                 <label for="name" class="form-label-sm">
-                        ID Mhs :  </label>
+                        NIM :  </label>
                         <div class="form-group">
-                        <input type="text" name="mhsID" style="  width: 20%;" autofocus required><br></div>
+                        <input type="text" name="nim" style="  width: 20%;" autofocus required><br></div>
                 
                 <label for="name" class="form-label-sm">
-                        firstname : </label>
+                        Nama : </label>
                         <div class="form-group">
-                        <input type="text" name="firstname" style="  width: 20%; margin: 8px 0;" autofocus required><br></div>
+                        <input type="text" name="nama_mhs" style="  width: 20%; margin: 8px 0;" autofocus required><br></div>
                
                 <label for="name" class="form-label-sm">
-                        lastname :</label>
+                        Mata Kuliah :</label>
                         <div class="form-group">
-                         <input type="text" name="lastname" style="  width: 20%;margin: 8px 0;" required><br></div>
+                         <input type="text" name="matakuliah" style="  width: 20%;margin: 8px 0;"autofocus required><br></div>
                 
                 <label for="name" class="form-label-sm">
-                    jobdate :</label>
+                Uts :</label>
                     <div class="form-group">
-                    <input type="date" name="jobdate" style="  width: 20%;margin: 8px 0;" required><br>
+                    <input type="text" name="uts" style="  width: 20%;margin: 8px 0;" required><br>
   
                 <label for="name" class="form-label-sm">
-                    age : </label>
+                    Uas : </label>
                     <div class="form-group">
-                    <input type="text" name="age" style="  width: 20%;margin: 8px 0;" required><br>
+                    <input type="text" name="uas" style="  width: 20%;margin: 8px 0;" required><br></div>
+
+                    <label for="name" class="form-label-sm">
+                    tugas : </label>
+                    <div class="form-group">
+                    <input type="text" name="tugas" style="  width: 20%;margin: 8px 0;" required><br>
+                   
+                    <label for="name" class="form-label-sm">
+                    Kehadiran : </label>
+                    <div class="form-group">
+                    <input type="text" name="jmlhadir" style="  width: 20%;margin: 8px 0;" required><br>
   <div>
-                <button class="btn btn-primary" type="submit" name="tambah" width="20px">SIMPAN</button>
+                <button class="btn btn-primary" type="submit" name="tambah" width="20px"> <span class="glyphicon glyphicon-floppy-disk"></span> SIMPAN</button>
   </div>
     </form>
-</table>
 </body>
 </html>

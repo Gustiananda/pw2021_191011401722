@@ -1,0 +1,23 @@
+body {
+    background-color:rgb(255, 248, 248);
+    background-image: linear-gradient(160deg, #faf5b5 0%, #979797 100%);
+  }
+  
+  .tbl {
+    margin-bottom: 7rem;
+  }
+.container overflow-hidden {
+    margin: 5px auto;
+    width: 100%;
+    padding: 10px;
+}
+input[type=submit] {
+    margin 5px auto;
+    float: right;
+    padding: 5px;
+    width: 90px;
+    border: 1px solid #fff;
+    color: #fff;
+    background: red;
+    cursor: pointer;
+}
