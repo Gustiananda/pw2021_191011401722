@@ -2,13 +2,13 @@
 require 'functions.php';
 
 // ambil nim dari url
-$nim = $_GET['nim'];
+$id = $_GET['id'];
 
 // query tbnilai berdasarkan nim
-$mahasiswa = query("SELECT * FROM tbnilai WHERE nim = $nim");
+$mahasiswa = query("SELECT * FROM tbnilai WHERE id = $id")[0];
 
 //jika tidak ada nim di url
-if(!isset($_GET['nim'])){
+if(!isset($_GET['id'])){
     header("Location: index.php");
     exit;
 }
@@ -22,6 +22,7 @@ if(isset($_POST['ubah'])){
         echo "data gagal diubah!";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +56,7 @@ if(isset($_POST['ubah'])){
                 <label for="name" class="form-label-sm">
                         NIM :  </label>
                         <div class="form-group">
-                        <input type="text" name="nim"style="  width: 20%;" autofocus required value="<?= $mahasiswa['nim'] ?>"><br></div>
+                        <input type="text" name="nim" style="  width: 20%;" autofocus required value="<?= $mahasiswa['nim'] ?>"><br></div>
                 
                 <label for="name" class="form-label-sm">
                         Nama : </label>
@@ -86,6 +87,17 @@ if(isset($_POST['ubah'])){
                     Kehadiran : </label>
                     <div class="form-group">
                     <input type="text" name="jmlhadir" style="  width: 20%;margin: 8px 0;" required  value="<?= $mahasiswa['jmlhadir'];?>"><br>
+                  
+                    <label for="name" class="form-label-sm">
+                    Nilai Akhir: </label>
+                    <div class="form-group">
+                    <input type="text" name="akhir" style="  width: 20%;margin: 8px 0;" required  value="<?= $mahasiswa['nilai_akhir'];?>" readonly><br>
+
+                    <label for="name" class="form-label-sm">
+                    Grade : </label>
+                    <div class="form-group">
+                    <input type="text" name="grade" style="  width: 20%;margin: 8px 0;" required  value="<?= $mahasiswa['grade'];?>"readonly><br>
+
   <div>
                 <button class="btn btn-primary" type="submit" name="ubah" width="20px"> <span class="glyphicon glyphicon-floppy-disk"></span> Ubah</button>
   </div>

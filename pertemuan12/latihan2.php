@@ -53,7 +53,7 @@ $mahasiswa = query('SELECT * FROM tbnilai');
             <td><?= $m['nilai_akhir'];?></td>
             <td><?= $m['grade'];?></td>
             <td>
-            <a href="ubah.php?nim=<?= $m['nim'];?>"><span class="glyphicon glyphicon-edit"></a> | 
+            <a href="ubah.php?id=<?= $m['id'];?>"><span class="glyphicon glyphicon-edit"></a> | 
             <a href="hapus.php?nim=<?= $m['nim'];?>" 
                 onclick="return confirm('apakah anda yakin?');"><span class="glyphicon glyphicon-floppy-remove"></span></a> |
                 <a href="index.php"><span class="glyphicon glyphicon-retweet"></span></a> </a> 

@@ -50,15 +50,22 @@ function ubah($data)
 {
     $conn = koneksi();
     $id = $data['id'];
-$nim = htmlspecialchars($data['nim']);
-$nama_mhs = htmlspecialchars ($data['nama_mhs']);
-$matakuliah = htmlspecialchars ($data['matakuliah']);
-$uts = htmlspecialchars ($data['uts']);
-$uas = htmlspecialchars ($data['uas']);
-$tugas = htmlspecialchars ($data['tugas']);
-$jmlhadir = htmlspecialchars ($data['jmlhadir']);
+$nim = $data['nim'];
+$nama_mhs =$data['nama_mhs'];
+$matakuliah =  $data['matakuliah'];
+$uts =  $data['uts'];
+$uas =  $data['uas'];
+$tugas =  $data['tugas'];
+$jmlhadir =  $data['jmlhadir'];
 
-    $query = "UPDATE tbnilai SET 
+$nilai_akhir=(20*$tugas+10*$jmlhadir+30*$uts+40*$uas)/100;
+if(($nilai_akhir<=100)&&($nilai_akhir>=81)) {$grade="A";}
+else if(($nilai_akhir<=80)&&($nilai_akhir>=71)) {$grade="B";}
+else if(($nilai_akhir<=70)&&($nilai_akhir>=61)) {$grade="C";}
+else if(($nilai_akhir<=60)&&($nilai_akhir>=51)) {$grade="D";}
+else if(($nilai_akhir<=50)&&($nilai_akhir>=0)) {$grade="E";}
+
+   $query = "UPDATE tbnilai SET 
     nim = '$nim',
     nama_mhs= '$nama_mhs', 
     matakuliah='$matakuliah', 
@@ -66,9 +73,9 @@ $jmlhadir = htmlspecialchars ($data['jmlhadir']);
     uas='$uas', 
     tugas='$tugas', 
     jmlhadir='$jmlhadir',
-    akhir='akhir',
-    grade='grade' 
-            WHERE nim= '$nim'";
+    nilai_akhir='$nilai_akhir',
+    grade='$grade' 
+            WHERE id=$id";
     mysqli_query($conn, $query)or die(mysqli_error($conn));
     return mysqli_affected_rows($conn);
 }
